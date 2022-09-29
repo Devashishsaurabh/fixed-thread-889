@@ -1,5 +1,6 @@
 import React from 'react'
-import Header from '../Components/Header'
+import Header from '../Components/Home/Header'
+
 import Free from '../Components/HomeSections/Free'
 import Rating from '../Components/HomeSections/Rating'
 import Support from '../Components/HomeSections/Support'

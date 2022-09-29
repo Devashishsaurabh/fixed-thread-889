@@ -1,0 +1,44 @@
+.main_box{
+    /* border: 1px solid red; */
+    height: 70px;
+    width: 100%;
+    color: #000000;
+}
+.box1{
+    display: flex;
+    justify-content: space-between;
+    width: 76%;
+    height: 70px;
+    /* border: 1px solid palevioletred; */
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-left:200px ;
+    cursor: pointer;
+}
+.box2{
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.box3{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 30px;
+}
+.blue:hover{
+    color: #03a9f4;
+}
+.sign{
+    border:1px solid #03a9f4;
+    margin-top: -10px;
+    height:50px ;
+    width:150px ;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.sign:hover{
+    background-color: #03a9f4;
+    color: white;
+}
