@@ -75,14 +75,14 @@ const Footer = () => {
               </Text>
               <Text>Cookies</Text>
               <Text>Terms</Text>
-              <Text _hover={{ cursor: "pointer", color: "white" }}>
+              <Text _hover={{ cursor: "pointer", color: "black" }}>
                 Privacy
               </Text>
-              <Text _hover={{ cursor: "pointer", color: "white" }}>
+              <Text _hover={{ cursor: "pointer", color: "black" }}>
                 Security
               </Text>
             </Stack>
-            <HStack _hover={{ cursor: "pointer", color: "white" }} color="gray">
+            <HStack _hover={{ cursor: "pointer", color: "black" }} color="gray">
               <BsTwitter />
               <BsFacebook />
               <BsInstagram />
@@ -97,7 +97,7 @@ const Footer = () => {
                 +1-855-738-8741
               </Text>
             </HStack>
-            <HStack _hover={{ cursor: "pointer", color: "white" }} color="gray">
+            <HStack _hover={{ cursor: "pointer", color: "black" }} color="gray">
               <RiGlobalLine />
               <Text>ENGLISH</Text>
             </HStack>
