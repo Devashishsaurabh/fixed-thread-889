@@ -18,7 +18,6 @@ userController.post("/signup", async (req, res) => {
     res.status(201).send(user);
   });
 });
-
 userController.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
