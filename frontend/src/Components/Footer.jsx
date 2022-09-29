@@ -8,6 +8,7 @@ import {
   BsLinkedin,
 } from "react-icons/bs";
 import { RiGlobalLine } from "react-icons/ri";
+import Card from "./HomeSections/Card";
 const Footer = () => {
   return (
     <Flex py="40px" px="5px" bg="white" w="100%" h="auto">
@@ -22,7 +23,7 @@ const Footer = () => {
             <Text color="gray">LOG IN</Text>
           </Stack>
           <Flex justifyContent="space-between" w={["100%" , "100%" , "75%","75%"]} h="100%" flexDirection={["column" , "row" , "row" ," row"]}>
-            {/* <Card
+            <Card
               arr={[
                 "PRODUCT",
                 "Features",
@@ -61,7 +62,7 @@ const Footer = () => {
                 "Blog",
                 "Contact",
               ]}
-            /> */}
+            />
           </Flex>
         </Flex>
         <Stack mt="30px" spacing={10} h="30%" w="100%" bg="white">
