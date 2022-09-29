@@ -14,24 +14,25 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSignup = () => {
-    // Todo : get all users emails if current email is not present in db then only signup
     const payload = {
       email: email,
       password: password,
     };
     axios
-      .post("", payload)
+      .post(`https://clockify-api.herokuapp.com/signup`, payload)
       .then((r) => {
         console.log(r.data);
       })
       .catch((e) => console.log(e));
   };
+
   return (
     <Box bg={"#f2f6f8"} h={"auto"}>
       <Flex
@@ -46,9 +47,11 @@ const Signup = () => {
         </Box>
         <Spacer />
         <Box h={"100%"} w={"100px"}>
-          <Text fontSize={"20px"} color={"#03a9f4"}>
-            Log In
-          </Text>
+          <Link to="/login">
+            <Text fontSize={"20px"} color={"#03a9f4"}>
+              Log In
+            </Text>
+          </Link>
         </Box>
       </Flex>
 

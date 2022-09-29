@@ -10,17 +10,19 @@ import {
   Stack,
   Button,
   useColorModeValue,
-  Link,
   Divider,
-  HStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //TODO Insert backend link for login
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  //TODO after successful login navigate to dashboard
 
   const handleLogin = () => {
     const payload = {
@@ -28,14 +30,18 @@ const Login = () => {
       password: password,
     };
     axios
-      .post("", payload)
+      .post("https://clockify-api.herokuapp.com/login", payload)
       .then((r) => {
         console.log(r.data);
         if (r.data.token) {
           localStorage.setItem("login_token", r.data.token);
+          navigate("/"); // TODO
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setError(true);
+      });
   };
 
   return (
@@ -55,7 +61,7 @@ const Login = () => {
           <Flex h={"100%"} w={"277px"}>
             <Text fontSize={"20px"}>Don't have an account? </Text>
             <Spacer />
-            <Link>
+            <Link to="/signup">
               <Text fontSize={"20px"} color={"#03a9f4"}>
                 Sign In
               </Text>
@@ -111,6 +117,13 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </FormControl>
+                  {error && (
+                    <Box>
+                      <Text textAlign={"left"} color={"red"} fontSize={"18px"}>
+                        Invalid Credentials
+                      </Text>
+                    </Box>
+                  )}
                   <Stack spacing={10}>
                     <Stack
                       direction={{ base: "column", sm: "row" }}
