@@ -10,16 +10,27 @@ import {
   Stack,
   Button,
   useColorModeValue,
+  Divider,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import axios from "axios";
 
-// {{ base: '0-48', md: '48-62', lg: '62-upword' }}
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSignup = () => {
-    console.log(email, password);
+    // Todo : get all users emails if current email is not present in db then only signup
+    const payload = {
+      email: email,
+      password: password,
+    };
+    axios
+      .post("", payload)
+      .then((r) => {
+        console.log(r.data);
+      })
+      .catch((e) => console.log(e));
   };
   return (
     <Box bg={"#f2f6f8"} h={"auto"}>
@@ -154,15 +165,13 @@ const Signup = () => {
                   >
                     CREATE FREE ACCOUNT
                   </Button>
-                  <p
-                    style={{
-                      marginTop: "20px",
-                      marginBottom: "-10px",
-                      fontSize: "20px",
-                    }}
-                  >
-                    OR
-                  </p>
+                  <Flex alignItems="center" gap="2">
+                    <Divider orientation="horizontal" w={"48%"}></Divider>
+                    <Box>
+                      <Text fontSize={"20px"}>OR</Text>
+                    </Box>
+                    <Divider orientation="horizontal" w={"48%"}></Divider>
+                  </Flex>
 
                   <Flex
                     justifyContent={"center"}
