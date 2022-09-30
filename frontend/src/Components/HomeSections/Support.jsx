@@ -3,6 +3,24 @@ import React from "react";
 import SupportCard from "./SupportCard";
 
 const Support = () => {
+  const arr = [
+    {
+      data: "24/7",
+      text: "support anytime, anywhere",
+    },
+    {
+      data: "1h",
+      text: "average response time",
+    },
+    {
+      data: "95%",
+      text: "satisfaction score",
+    },
+    {
+      data: "99.99%",
+      text: "highest uptime levels",
+    },
+  ];
   return (
     <Stack py="50px" bg="white" w="100%" h="auto">
       <Stack textAlign="center">
@@ -14,15 +32,24 @@ const Support = () => {
           We're here 24 hours a day, every day of the week, including holidays.
         </Text>
       </Stack>
-      <Flex  py="10px" alignItems="center" m="auto" justifyContent="center"  flexDirection={["column" , "row" , "row" ," row"]}>
-        <SupportCard/>
-        <SupportCard/>
-        <SupportCard/>
-        <SupportCard/>
+      <Flex
+        py="10px"
+        alignItems="center"
+        m="auto"
+        justifyContent="center"
+        flexDirection={["column", "row", "row", " row"]}
+      >
+        {arr.map(({ data, text }) => {
+          return (
+            <>
+              <SupportCard date={data} text={text} />
+            </>
+          );
+        })}
       </Flex>
       <Box textAlign="center">
         <Button colorScheme="teal" variant="outline">
-          Button
+          Contact us
         </Button>
         <Text color="gray">EMAIL • PHONE • CHAT</Text>
       </Box>
