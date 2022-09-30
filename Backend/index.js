@@ -8,6 +8,7 @@ const { connection } = require("./Config/config");
 const passport = require("./Config/google_auth");
 const jwt=require("jsonwebtoken");
 const projectController = require("./Controllers/project.routes");
+const taskController = require("./Controllers/task.routes");
 
 let PORT=8080 || process.env.PORT
 app.use(cors());
@@ -36,7 +37,7 @@ app.get(
 
 app.use("/", userController);
 app.use("/project", Authentication, projectController);
-
+app.use("/task",Authentication,taskController)
 app.listen(PORT, async () => {
   try {
     await connection;
