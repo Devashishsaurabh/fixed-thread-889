@@ -1,6 +1,7 @@
 import React from 'react'
 import {Box} from "@chakra-ui/react"
 import  "./styles/Navbar.css"
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -13,8 +14,8 @@ const Navbar = () => {
         <p className='blue'>Download</p>
       </div>
       <div className='box3'>
-        <p className='blue'>log in </p>
-        <button className='sign'>sign up free</button>
+        <Link to ="/login"><p className='blue'>log in </p></Link>
+        <Link to="/signup"><button className='sign'>sign up free</button></Link>
       </div>
 
       </div>

@@ -1,8 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/layout'
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useRef, useState } from 'react'
 import { Button, Textarea } from '@chakra-ui/react'
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-import { BsTags } from 'react-icons/bs';
 import InitialFocus from '../../Components/Timetracker/ProjectModal';
 
 const TimeTracker = () => {
@@ -62,12 +60,12 @@ const TimeTracker = () => {
   }
 
   
-  if(watch==60){
+  if(watch===60){
     setminute(minute+1)
     setWatch(0)
 }
 
-if(minute==60){
+if(minute===60){
   setHour(hour+1)
   setminute(0)
 }
