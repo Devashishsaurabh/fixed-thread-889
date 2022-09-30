@@ -22,8 +22,6 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  //TODO after successful login navigate to dashboard
-
   const handleLogin = () => {
     const payload = {
       email: email,
@@ -35,7 +33,7 @@ const Login = () => {
         console.log(r.data);
         if (r.data.token) {
           localStorage.setItem("login_token", r.data.token);
-          navigate("/"); // TODO
+          navigate("/clockify/"); 
         }
       })
       .catch((e) => {
