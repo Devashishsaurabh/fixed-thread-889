@@ -74,8 +74,7 @@ const Signup = () => {
             fontWeight={"400"}
             lineHeight={"1.5"}
             mb={"20px"}
-          >
-            Create a free account to start tracking time and supercharge your
+          >Create a free account to start tracking time and supercharge your
             productivity.
           </Text>
           <Text
