@@ -26,6 +26,7 @@ const Sidebar = () => {
       position="fixed"
       z-index="1"
       top="0"
+      overflowY= "scroll"
     >
       <Box
         w="100%"

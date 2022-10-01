@@ -48,6 +48,7 @@ let getData=async()=>{
   const handleSubmit = (e)=>{
     e.preventDefault()
     postdata()
+    onClose()
   }
   
     return (

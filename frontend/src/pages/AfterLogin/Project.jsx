@@ -66,7 +66,7 @@ useEffect(()=>{
     <Box w="80%" m="auto">
      {data?.map(el=>(
       <Flex w="60vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"} key={"el._id"}>
-        <Box border="1px solid black" padding={"0 1rem 0 1rem"}><Text as="b">{el.tag}</Text></Box>
+        <Box border="1px solid black" padding={"0 1rem 0 1rem"} boxShadow= "5px 10px #888888"><Text as="b">{el.tag}</Text></Box>
         <Box><Text as="b" color={"black"} bg="#e1f5fe" padding={"0.5rem 1rem 0.5rem 1rem"}>{`Project: ${el.name}`}</Text></Box>
         <Box><BsTags fontSize={"30px"}/></Box>
 
