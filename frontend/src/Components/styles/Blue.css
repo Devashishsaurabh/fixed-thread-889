@@ -1,0 +1,14 @@
+.start{
+    height: 60px;
+    width: 300px;
+    color: white;
+    background-color:#0d9ce0;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    font-family: Roboto,sans-serif;
+}
