@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom"
 const Sidebar = () => {
     const navigate= useNavigate()
   return (
-    <Box bg="white" w="20%" h="100vh" p={4} color="black" display={"flex"} flexDirection="column" gap="2rem" border={"1px solid black"} >
+    <Box bg="white" w="18%" p={4} color="black" display={"flex"} flexDirection="column" gap="2rem"  >
       <Box w="100%" padding={"1rem"} _hover={{bg:"gray",color:"white"}} bg="white" onClick={()=>navigate("/clockify/")}><Text as="b" >TIME TRACKER</Text></Box>
       <Box w="100%" padding={"1rem"} _hover={{bg:"gray",color:"white"}} bg="white"><Text as="b" >CALENDAR</Text></Box>
       <Box w="100%" padding={"1rem"} _hover={{bg:"gray",color:"white"}} bg="white" onClick={()=>navigate("/clockify/dashboard")}><Text as="b" >DASHBOARD</Text></Box>

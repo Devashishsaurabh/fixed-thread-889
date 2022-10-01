@@ -6,6 +6,7 @@ import Footer from "../Components/Footer"
 import Login from "./Login"
 import Signup from "./Signup"
 import AfterLoginRoutes from './AfterLogin/AfterLoginRoutes';
+import Features from './Features';
 
 
 
@@ -17,6 +18,7 @@ const MainRoutes = () => {
    <Route path="/login" element={<Login />}></Route>
    <Route path="/signup" element={<Signup />}></Route>
    <Route path="/clockify/*"element={<AfterLoginRoutes/>}></Route>
+   <Route path="/features" element={<><Navbar /><Features /><Footer /></>}></Route>
    </Routes>
    
    </>

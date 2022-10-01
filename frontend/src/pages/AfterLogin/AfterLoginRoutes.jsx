@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
+import Navbar from '../../Components/Sidebar/Navbar';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Dashboard from './Dashboard'
 import TimeTracker from './TimeTracker';
@@ -7,8 +8,10 @@ import TimeTracker from './TimeTracker';
 
 const AfterLoginRoutes = () => {
   return (
+    <div>
+    <Navbar/>
     <div style={{display:"flex"}}>
-        <Sidebar/>
+    <Sidebar/>
     <div>
     <Routes>
     <Route path="/" element={<TimeTracker/>}></Route>
@@ -16,7 +19,7 @@ const AfterLoginRoutes = () => {
     </Routes>
     </div>
     </div>
-   
+    </div>
   )
 }
 

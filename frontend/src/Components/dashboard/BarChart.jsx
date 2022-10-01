@@ -61,7 +61,7 @@ function BarChart() {
   };
   return (
     <>
-      <div style={{ width: "1200px", margin: "auto auto" }}>
+      <div style={{width: "92%",margin: "auto auto" }}>
         <Bar options={options} data={data} />
       </div>
     </>
