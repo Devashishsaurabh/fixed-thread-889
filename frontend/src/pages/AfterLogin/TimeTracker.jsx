@@ -1,24 +1,33 @@
 import { Box, Flex, Text } from '@chakra-ui/layout'
-import React, {useRef, useState } from 'react'
+import React, {useEffect, useRef, useState } from 'react'
 import { Button, Textarea } from '@chakra-ui/react'
 import InitialFocus from '../../Components/Timetracker/ProjectModal';
-
+import axios from 'axios';
+import { BsTags } from "react-icons/bs";
 const TimeTracker = () => {
   const [watch, setWatch]= useState(0)
   const [minute,setminute]=useState(0)
   const [hour,setHour]=useState(0)
   const [data,setData]= useState([])
-  const [project,setProject]=useState("")
+  const [project,setProject]=useState({})
   const [dept,setDept]=useState("")
-  // const [timerId,setTimerId]= useState()
-  const timerId=useRef(null);
   
-
+  const timerId=useRef(null);
+  let token= localStorage.getItem("login_token")
+  // let getData=async()=>{
+  //   await axios.get("https://clockify-api.herokuapp.com/project",
+  //   {headers: {'authorization' : `Bearer ${token}`}})
+  //   .then(res=>setData(res.data)) 
+  // }
+  
+  // useEffect(()=>{
+  //   getData()
+  // },[])
 
 
   const start= ()=>{
 
-    if(project && dept){
+    if(project){
       if(!timerId.current){
         let id= setInterval(()=>{
             setWatch((pre)=>pre+1)
@@ -40,22 +49,48 @@ const TimeTracker = () => {
     timerId.current=null
   }
 
+
+//   let getData=async()=>{
+//     await axios.get("https://clockify-api.herokuapp.com/project",
+//     {headers: {'authorization' : `Bearer ${token}`}})
+//     .then(res=>setStatus(!status)) 
+// }
+
+
+  let postdata= async ()=>{
+    let total= 3600*Number(hour)+60*Number(minute) + Number(watch)
+    let newProject= {
+        name:project.name,
+        tag:project.tag,
+        billable:false,
+        startAt:"0",
+        endAt:`${total}`
+    }
+    console.log(newProject)
+    
+    await axios.post("https://clockify-api.herokuapp.com/task/create",newProject,
+    {headers: {'authorization' : `Bearer ${token}`}}
+    ).then(res=>console.log(res.data))
+    // .then(()=>getData())
+  }
+
+
   const reset = ()=>{
       clearInterval(timerId.current)
-      let total= 3600*Number(hour)+60*Number(minute) + Number(watch) 
-      setData([...data,
-         {
-          dept,
-          project,
-          totalTime:total
-         }
-        ])
+      // let total= 3600*Number(hour)+60*Number(minute) + Number(watch) 
+      // setData([...data,
+      //    {
+      //     dept,
+      //     project,
+      //     totalTime:total
+      //    }
+      //   ])
       setWatch(0)
       setminute(0)
       setHour(0)
       setProject("")
       setDept("")
-      
+      postdata()
       timerId.current=null
   }
 
@@ -70,8 +105,9 @@ if(minute===60){
   setminute(0)
 }
 
-const addProject= (name)=>{
-setProject(name)
+const addProject= (data)=>{
+  // console.log(name)
+setProject(data)
 }
 
 

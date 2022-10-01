@@ -2,6 +2,14 @@ import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { BsTags } from "react-icons/bs";
+import { RiTeamFill } from "react-icons/ri";
+import { AiOutlineProject } from "react-icons/ai";
+import { TbReportAnalytics } from "react-icons/tb";
+import { MdOutlineDashboard } from "react-icons/md";
+import { BiCalendar } from "react-icons/bi";
+import { AiOutlineClockCircle } from "react-icons/ai";
+import { HiOutlineUserCircle } from "react-icons/hi";
+import { FiSettings } from "react-icons/fi";
 const Sidebar = () => {
   const navigate = useNavigate();
   return (
@@ -26,7 +34,10 @@ const Sidebar = () => {
         cursor="pointer"
         bg="white"
         onClick={() => navigate("/clockify/")}
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
+        <AiOutlineClockCircle fontSize={"30px"}/>
         <Text as="b">TIME TRACKER</Text>
       </Box>
       <Box
@@ -35,7 +46,10 @@ const Sidebar = () => {
         _hover={{ bg: "gray", color: "white" }}
         cursor="pointer"
         bg="white"
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
+        <BiCalendar fontSize={"30px"}/>
         <Text as="b">CALENDAR</Text>
       </Box>
       <Box
@@ -45,7 +59,10 @@ const Sidebar = () => {
         cursor="pointer"
         bg="white"
         onClick={() => navigate("/clockify/dashboard")}
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
+        <MdOutlineDashboard fontSize={"25px"}/>
         <Text as="b">DASHBOARD</Text>
       </Box>
       <Box
@@ -54,7 +71,10 @@ const Sidebar = () => {
         _hover={{ bg: "gray", color: "white" }}
         cursor="pointer"
         bg="white"
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
+        <TbReportAnalytics fontSize={"30px"}/>
         <Text as="b">REPORTS</Text>
       </Box>
       <Box
@@ -64,7 +84,9 @@ const Sidebar = () => {
         cursor="pointer"
         bg="white"
       >
-        <Box onClick={() => navigate("/clockify/project")}>
+        <Box onClick={() => navigate("/clockify/project")} display={"flex"}
+        justifyContent={"center"} gap="2rem">
+          <AiOutlineProject fontSize={"30px"}/>
           <Text as="b">PROJECTS</Text>
         </Box>
       </Box>
@@ -74,8 +96,11 @@ const Sidebar = () => {
         _hover={{ bg: "gray", color: "white" }}
         cursor="pointer"
         bg="white"
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
-        <Text as="b">TEAM</Text>
+        <RiTeamFill fontSize={"30px"}/>
+        <Text as="b">TEAMS</Text>
       </Box>
       <Box
         w="100%"
@@ -83,6 +108,8 @@ const Sidebar = () => {
         _hover={{ bg: "gray", color: "white" }}
         cursor="pointer"
         bg="white"
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
         <Flex justifyContent={"center"} gap="2rem">
           <BsTags fontSize={"30px"} />
@@ -95,7 +122,10 @@ const Sidebar = () => {
         _hover={{ bg: "gray", color: "white" }}
         cursor="pointer"
         bg="white"
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
+        <HiOutlineUserCircle fontSize={"30px"}/>
         <Text as="b">CLIENTS</Text>
       </Box>
       <Box
@@ -104,7 +134,10 @@ const Sidebar = () => {
         _hover={{ bg: "gray", color: "white" }}
         cursor="pointer"
         bg="white"
+        display={"flex"}
+        justifyContent={"center"} gap="2rem"
       >
+        <FiSettings fontSize="30px"/>
         <Text as="b">SETTINGS</Text>
       </Box>
     </Box>
