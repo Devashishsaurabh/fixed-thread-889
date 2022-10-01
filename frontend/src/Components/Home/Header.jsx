@@ -8,10 +8,10 @@ const Header=()=>{
  timesheet app that lets you track work hours across projects.<br/>
  Unlimited users, free forever.
  </p>
- <div className="review">
+<div className="review">
     <img src="https://clockify.me/assets/images/stars-small.svg"   width="80px"/>
     <p className="star">4,000+ Reviews</p>
+</div>
  </div>
-    </div>
 }
 export default Header

@@ -9,6 +9,7 @@ import {
 } from "react-icons/bs";
 import { RiGlobalLine } from "react-icons/ri";
 import Card from "./HomeSections/Card";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <Flex py="40px" px="5px" bg="white" w="100%" h="auto">
@@ -19,8 +20,8 @@ const Footer = () => {
             <Text color="gray" fontSize={13}>
               The world's leading time tracker and timesheet software for teams
             </Text>
-            <Text color="gray">SIGN UP FREE</Text>
-            <Text color="gray">LOG IN</Text>
+            <Link to="/signup"><Text color="gray">SIGN UP FREE</Text></Link>
+            <Link to="/login"><Text color="gray">LOG IN</Text></Link>
           </Stack>
           <Flex justifyContent="space-between" w={["100%" , "100%" , "75%","75%"]} h="100%" flexDirection={["column" , "row" , "row" ," row"]}>
             <Card

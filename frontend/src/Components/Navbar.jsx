@@ -9,8 +9,8 @@ const Navbar = () => {
     <div className='main_box'> 
     <div className='box1'>
       <div className='box2'>
-        <img src="https://clockify.me/assets/images/clockify-logo.svg" width="120px"/>
-        <p className='blue'>Features</p>
+        <Link to="/"><img src="https://clockify.me/assets/images/clockify-logo.svg" width="120px"/></Link>
+        <Link to="features"><p className='blue'>Features</p></Link>
         <p className='blue'>Download</p>
       </div>
       <div className='box3'>

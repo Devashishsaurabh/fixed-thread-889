@@ -76,8 +76,8 @@ setProject(name)
 
 
   return (
-    <Box w="80vw" h="100vh" border={"1px solid red"} bg="#e4eaee">
-     <Flex w="80%" border={"1px solid red"} m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
+    <Box w="82vw" h="100vh" bg="#e4eaee" pt="2rem">
+     <Flex w="80%" m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
      <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} />
       <InitialFocus addProject={addProject}/>
      <Box w="10%"><Text as={"b"}>{`Time: ${hour}: ${minute}: ${watch} `}</Text> </Box>
