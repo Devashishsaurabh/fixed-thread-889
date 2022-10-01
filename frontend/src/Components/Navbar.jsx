@@ -14,11 +14,9 @@ const Navbar = () => {
         <Link to="/download"><p className='blue'>Download</p></Link>
       </div>
       <div className='box3'>
-        <p className='blue'>log in </p>
+      <Link to ="/login"><p className='blue'>log in </p></Link>
          <Link to="/signup"><button className='signup'>sign up free</button></Link>
 
-        <Link to ="/login"><p className='blue'>log in </p></Link>
-        <Link to="/signup"><button className='sign'>sign up free</button></Link>
 
       </div>
 
