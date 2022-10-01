@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { BsTags } from "react-icons/bs";
-
 const Sidebar = () => {
   const navigate = useNavigate();
   return (
