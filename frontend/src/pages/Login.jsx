@@ -33,13 +33,19 @@ const Login = () => {
         console.log(r.data);
         if (r.data.token) {
           localStorage.setItem("login_token", r.data.token);
-          navigate("/clockify/"); 
+          localStorage.setItem("email", r.data.email);
+
+          navigate("/clockify/");
         }
       })
       .catch((e) => {
         console.log(e);
         setError(true);
       });
+  };
+
+  const handleGoogleLogin = () => {
+    navigate("/auth/google");
   };
 
   return (
@@ -157,6 +163,8 @@ const Login = () => {
                       margin={"auto"}
                       border={"1px solid gray"}
                       h={"50px"}
+                      cursor="pointer"
+                      onClick={handleGoogleLogin}
                     >
                       <Box w={"80px"} h={"50px"}>
                         <Image
@@ -170,6 +178,7 @@ const Login = () => {
                         ></Image>
                       </Box>
                       <Spacer />
+
                       <Text
                         textAlign={"center"}
                         mt={"8px"}
