@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text ,useColorModeValue} from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom"
 
 const Sidebar = () => {
     const navigate= useNavigate()
   return (
-    <Box bg="white" w="18%" p={4} color="black" display={"flex"} flexDirection="column" gap="2rem"  >
+    <Box bg="white" w="18%" p={4} color="black" display={"flex"} flexDirection="column" gap="2rem" borderRight="1px" borderBottom="1px"
+    borderBottomColor={useColorModeValue("gray.200", "gray.700")} borderRightColor={useColorModeValue("gray.200", "gray.700")} >
       <Box w="100%" padding={"1rem"} _hover={{bg:"gray",color:"white"}} bg="white" onClick={()=>navigate("/clockify/")}><Text as="b" >TIME TRACKER</Text></Box>
       <Box w="100%" padding={"1rem"} _hover={{bg:"gray",color:"white"}} bg="white"><Text as="b" >CALENDAR</Text></Box>
       <Box w="100%" padding={"1rem"} _hover={{bg:"gray",color:"white"}} bg="white" onClick={()=>navigate("/clockify/dashboard")}><Text as="b" >DASHBOARD</Text></Box>

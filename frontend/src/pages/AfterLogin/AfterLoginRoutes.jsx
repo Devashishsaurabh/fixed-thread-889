@@ -4,6 +4,7 @@ import Navbar from '../../Components/Sidebar/Navbar';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Dashboard from './Dashboard'
 import TimeTracker from './TimeTracker';
+import Upgrade from './Upgrade';
 
 
 const AfterLoginRoutes = () => {
@@ -16,6 +17,7 @@ const AfterLoginRoutes = () => {
     <Routes>
     <Route path="/" element={<TimeTracker/>}></Route>
     <Route path="/dashboard" element={<Dashboard/>}></Route>
+    <Route path="/upgrade" element={<Upgrade />}></Route>
     </Routes>
     </div>
     </div>
