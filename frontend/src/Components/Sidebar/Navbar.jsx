@@ -75,7 +75,7 @@ const Navbar = ({ children }) => {
               _hover={{ bg: "#8ad7fa", color: "#fff" }}
               p={[1]}
             >
-              <RouterLink to="/upgrade">UPGRADE</RouterLink>
+              <RouterLink to="/clockify/upgrade">UPGRADE</RouterLink>
             </Text>
             <Box>
               <IconButton
