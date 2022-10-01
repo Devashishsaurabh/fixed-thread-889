@@ -4,7 +4,7 @@ import { PiChart } from '../../Components/dashboard/PieChart'
 
 const Dashboard = () => {
   return (
-    <div>
+    <div style={{marginLeft:"25rem"}}>
       <h1>Dashboard</h1>
       <BarChart/>
       <PiChart/>

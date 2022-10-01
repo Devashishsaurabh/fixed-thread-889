@@ -76,22 +76,25 @@ setProject(name)
 
 
   return (
-    <Box w="80vw" h="100vh" border={"1px solid red"} bg="#e4eaee">
-     <Flex w="80%" border={"1px solid red"} m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
+    <Box w="80vw" h="100vh"  bg="#e4eaee" ml="21rem">
+     <Flex w="80%"  m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
      <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} />
       <InitialFocus addProject={addProject}/>
      <Box w="10%"><Text as={"b"}>{`Time: ${hour}: ${minute}: ${watch} `}</Text> </Box>
      <Button width={"15%"} onClick={start} cursor="pointer">Start</Button>
      <Button width={"15%"} onClick={reset} cursor="pointer">Stop</Button>
      </Flex>
+     <Box w="80%" m="auto">
      {data?.map(el=>(
-      <Flex w="70vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"}>
-        <Box><Text as="b">{el.dept}</Text></Box>
-        <Box><Text as="b" color={"red"}>{`Project: ${el.project}`}</Text></Box>
-        <Box><Text as="b" color="green">{`Time taken: ${el.totalTime} sec`}</Text></Box>
+      <Flex w="60vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"}>
+        <Box border="1px solid black" padding={"0 1rem 0 1rem"}><Text as="b">{el.dept}</Text></Box>
+        <Box><Text as="b" color={"black"} bg="#e1f5fe" padding={"0 1rem 0 1rem"}>{`Project: ${el.project}`}</Text></Box>
+        <Box><BsTags fontSize={"30px"}/></Box>
+
+        <Box border={"1px solid black"} padding={"0 1rem 0 1rem"}><Text as="b" color="green">{`Time taken: ${el.totalTime} sec`}</Text></Box>
       </Flex>
      ))}
-
+    </Box>
     </Box>
   )
 }
