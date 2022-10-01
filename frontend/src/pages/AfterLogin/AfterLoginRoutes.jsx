@@ -14,14 +14,12 @@ const AfterLoginRoutes = () => {
     <Navbar/>
     <div style={{display:"flex"}}>
     <Sidebar/>
-    <div>
     <Routes>
     <Route path="/" element={<TimeTracker/>}></Route>
     <Route path="/dashboard" element={<Dashboard/>}></Route>
     <Route path="/project" element={<Project/>}></Route>
     <Route path="/upgrade" element={<Upgrade />}></Route>
     </Routes>
-    </div>
     </div>
     </div>
   )

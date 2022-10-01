@@ -53,7 +53,10 @@ const TimeTracker = () => {
   let getData=async()=>{
     await axios.get("https://clockify-api.herokuapp.com/task",
     {headers: {'authorization' : `Bearer ${token}`}})
-    .then(res=>setData(res.data)) 
+    .then(res=>(
+      console.log(res.data),
+      setData(res.data)) 
+    )
 }
 
 useEffect(()=>{
@@ -114,22 +117,21 @@ setProject(data)
 
 
   return (
-
-    <Box w="82vw" h="150vh"  bg="#e4eaee" ml="20rem" overflow={"none"}>
-     <Flex w="80%"  m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
+    <Box w="82%" h="100vh"  bg="#e4eaee" >
+     <Flex w="83%"  m="auto" p="1rem" mt="2rem"  justifyContent={"space-between"}bg="white" alignItems={"center"}>
      {/* <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} /> */}
      <Input variant='filled' placeholder='Filled' w="35%" />
-//     <Box w="82vw" h="100vh" bg="#e4eaee" pt="2rem">
-//      <Flex w="80%" m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
-//      <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} />
+         <Flex w="80%" m="auto"  justifyContent={"space-between"}bg="white" alignItems={"center"}>
+        {/* <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} /> */}
 
       <InitialFocus addProject={addProject}/>
-     <Box w="10%"><Text fontSize={"2rem"} as={"b"}>{`${hour}: ${minute}: ${watch} `}</Text> </Box>
+     <Box w="13%"><Text fontSize={"2rem"} as={"b"}>{`${hour}: ${minute}: ${watch} `}</Text> </Box>
      <Button width={"15%"} onClick={start} cursor="pointer">Start</Button>
      <Button width={"15%"} onClick={reset} cursor="pointer">Stop</Button>
      </Flex>
+      </Flex>
      <Box w="80%" m="auto">
-     {data?.map(el=>(
+     {data!="No Task" && data.map(el=>(
       <Flex w="60vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"} >
         <Box border="1px solid black" padding={"1rem 1rem 1rem 1rem"}  boxShadow= "5px 10px #888888"><Text as="b">{el.name}</Text></Box>
         <Box><Text as="b" color={"black"} bg="#e1f5fe" padding={"1rem"}>{`Project: ${el.name}`}</Text></Box>

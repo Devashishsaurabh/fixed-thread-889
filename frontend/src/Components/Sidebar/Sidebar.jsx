@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
 import { BsTags } from "react-icons/bs";
 import { RiTeamFill } from "react-icons/ri";
 import { AiOutlineProject } from "react-icons/ai";
@@ -11,7 +10,7 @@ import { BiCalendar } from "react-icons/bi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
-import { Box, Text ,useColorModeValue} from "@chakra-ui/react";
+import { useColorModeValue} from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom"
 
 
@@ -21,20 +20,12 @@ const Sidebar = () => {
     <Box
       bg="white"
       w="20%"
-      h="100vh"
       color="black"
       display={"flex"}
       flexDirection="column"
       gap="2rem"
-      border={"1px solid black"}
-      m="0"
-      position="fixed"
-      z-index="1"
-      top="0"
-      overflowY= "scroll"
-     borderRight="1px" borderBottom="1px"
-    borderBottomColor={useColorModeValue("gray.200", "gray.700")} borderRightColor={useColorModeValue("gray.200", "gray.700")}
-
+      borderRight="1px" borderBottom="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")} borderRightColor={useColorModeValue("gray.200", "gray.700")}
     >
       <Box
         w="100%"
@@ -148,6 +139,7 @@ const Sidebar = () => {
       >
         <FiSettings fontSize="30px"/>
         <Text as="b">SETTINGS</Text>
+      </Box>
       </Box>
   );
 };
