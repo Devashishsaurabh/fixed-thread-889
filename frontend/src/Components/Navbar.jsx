@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
       <div className='box3'>
         <p className='blue'>log in </p>
-        <button className='sign'>sign up free</button>
+        <button className='signup'>sign up free</button>
       </div>
 
       </div>

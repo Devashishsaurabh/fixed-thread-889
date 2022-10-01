@@ -19,14 +19,17 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    cursor: pointer;
+    gap: 5px;
 }
 .star{
     color: gray;
     font-size: 12px;
+   
 }
 .star:hover{
     color: black;
 }
-.t{
+/* .t{
     color:#03a9f4;
-}
+} */

@@ -4,7 +4,7 @@ import TrackCard from "./TrackCard";
 
 const Track = () => {
   return (
-    <Box py={30} w="100%" bg="white" h="auto">
+    <Box py={30} w="100%" bg="white" h="auto" mt="70px">
       <Box color="black" textAlign="center">
         <Heading fontSize={["20", "20", "25", "28"]}>
           Why track time with Clockify
