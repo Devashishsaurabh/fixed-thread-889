@@ -21,7 +21,7 @@ useEffect(()=>{
   getData()
 },[status])
   return (
-   <Box w="80vw" h="100vh"  bg="#f2f6f8"  overflow={"none"}>
+   <Box w="80vw"   bg="#f2f6f8"  overflow={"none"}>
     <Flex w="90%"  m="auto" justifyContent={"space-between"} alignItems="center">
         <Text as="b" fontSize={"2rem"} p="1rem" color="#979b9a">Projects</Text>
         {/* <Button p="1rem" bg="#03a9f4">Create new Project</Button> */}

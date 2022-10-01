@@ -117,7 +117,7 @@ setProject(data)
 
 
   return (
-    <Box w="82%" h="100vh"  bg="#e4eaee" >
+    <Box w="82%"   bg="#e4eaee" >
      <Flex w="83%"  m="auto" p="1rem" mt="2rem"  justifyContent={"space-between"}bg="white" alignItems={"center"}>
      {/* <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} /> */}
      <Input variant='filled' placeholder='Filled' w="35%" />
