@@ -1,24 +1,33 @@
 import { Box, Flex, Text } from '@chakra-ui/layout'
-import React, {useRef, useState } from 'react'
-import { Button, Textarea } from '@chakra-ui/react'
+import React, {useEffect, useRef, useState } from 'react'
+import { Button, Input, Textarea } from '@chakra-ui/react'
 import InitialFocus from '../../Components/Timetracker/ProjectModal';
-
+import axios from 'axios';
+import { BsTags } from "react-icons/bs";
 const TimeTracker = () => {
   const [watch, setWatch]= useState(0)
   const [minute,setminute]=useState(0)
   const [hour,setHour]=useState(0)
   const [data,setData]= useState([])
-  const [project,setProject]=useState("")
+  const [project,setProject]=useState({})
   const [dept,setDept]=useState("")
-  // const [timerId,setTimerId]= useState()
-  const timerId=useRef(null);
   
-
+  const timerId=useRef(null);
+  let token= localStorage.getItem("login_token")
+  // let getData=async()=>{
+  //   await axios.get("https://clockify-api.herokuapp.com/project",
+  //   {headers: {'authorization' : `Bearer ${token}`}})
+  //   .then(res=>setData(res.data)) 
+  // }
+  
+  // useEffect(()=>{
+  //   getData()
+  // },[])
 
 
   const start= ()=>{
 
-    if(project && dept){
+    if(project){
       if(!timerId.current){
         let id= setInterval(()=>{
             setWatch((pre)=>pre+1)
@@ -40,22 +49,50 @@ const TimeTracker = () => {
     timerId.current=null
   }
 
+
+  let getData=async()=>{
+    await axios.get("https://clockify-api.herokuapp.com/task",
+    {headers: {'authorization' : `Bearer ${token}`}})
+    .then(res=>setData(res.data)) 
+}
+
+useEffect(()=>{
+  getData()
+},[])
+  let postdata= async ()=>{
+    let total= 3600*Number(hour)+60*Number(minute) + Number(watch)
+    let newProject= {
+        name:project.name,
+        tag:project.tag,
+        billable:false,
+        startAt:"0",
+        endAt:`${total}`
+    }
+    console.log(newProject)
+    
+    await axios.post("https://clockify-api.herokuapp.com/task/create",newProject,
+    {headers: {'authorization' : `Bearer ${token}`}}
+    ).then(res=>console.log(res.data))
+    .then(()=>getData())
+  }
+
+
   const reset = ()=>{
       clearInterval(timerId.current)
-      let total= 3600*Number(hour)+60*Number(minute) + Number(watch) 
-      setData([...data,
-         {
-          dept,
-          project,
-          totalTime:total
-         }
-        ])
+      // let total= 3600*Number(hour)+60*Number(minute) + Number(watch) 
+      // setData([...data,
+      //    {
+      //     dept,
+      //     project,
+      //     totalTime:total
+      //    }
+      //   ])
       setWatch(0)
       setminute(0)
       setHour(0)
       setProject("")
       setDept("")
-      
+      postdata()
       timerId.current=null
   }
 
@@ -70,28 +107,38 @@ if(minute===60){
   setminute(0)
 }
 
-const addProject= (name)=>{
-setProject(name)
+const addProject= (data)=>{
+  // console.log(name)
+setProject(data)
 }
 
 
   return (
-    <Box w="82vw" h="100vh" bg="#e4eaee" pt="2rem">
-     <Flex w="80%" m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
-     <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} />
+
+    <Box w="82vw" h="150vh"  bg="#e4eaee" ml="20rem" overflow={"none"}>
+     <Flex w="80%"  m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
+     {/* <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} /> */}
+     <Input variant='filled' placeholder='Filled' w="35%" />
+//     <Box w="82vw" h="100vh" bg="#e4eaee" pt="2rem">
+//      <Flex w="80%" m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
+//      <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} />
+
       <InitialFocus addProject={addProject}/>
-     <Box w="10%"><Text as={"b"}>{`Time: ${hour}: ${minute}: ${watch} `}</Text> </Box>
+     <Box w="10%"><Text fontSize={"2rem"} as={"b"}>{`${hour}: ${minute}: ${watch} `}</Text> </Box>
      <Button width={"15%"} onClick={start} cursor="pointer">Start</Button>
      <Button width={"15%"} onClick={reset} cursor="pointer">Stop</Button>
      </Flex>
+     <Box w="80%" m="auto">
      {data?.map(el=>(
-      <Flex w="70vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"}>
-        <Box><Text as="b">{el.dept}</Text></Box>
-        <Box><Text as="b" color={"red"}>{`Project: ${el.project}`}</Text></Box>
-        <Box><Text as="b" color="green">{`Time taken: ${el.totalTime} sec`}</Text></Box>
+      <Flex w="60vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"} >
+        <Box border="1px solid black" padding={"1rem 1rem 1rem 1rem"}  boxShadow= "5px 10px #888888"><Text as="b">{el.name}</Text></Box>
+        <Box><Text as="b" color={"black"} bg="#e1f5fe" padding={"1rem"}>{`Project: ${el.name}`}</Text></Box>
+        <Box display={"flex"} gap="1rem"><BsTags fontSize={"30px"}/><Text>{el.tag}</Text></Box>
+
+        <Box border={"1px solid black"} padding={"0 1rem 0 1rem"}><Text as="b" color="green">{`Time taken: ${el.endAt} sec`}</Text></Box>
       </Flex>
      ))}
-
+    </Box>
     </Box>
   )
 }
