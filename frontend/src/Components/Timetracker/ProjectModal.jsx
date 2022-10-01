@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios"
 import {
   Modal,
   ModalOverlay,
@@ -21,11 +21,24 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 
 function InitialFocus({ addProject }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [project, setProject] = useState("");
+  const [project, setProject] = useState({});
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-  console.log(project);
+  const [data,setData]=useState([])
+  // console.log(project);
+
+  let token= localStorage.getItem("login_token")
+  let getData=async()=>{
+    await axios.get("https://clockify-api.herokuapp.com/project",
+    {headers: {'authorization' : `Bearer ${token}`}})
+    .then(res=>setData(res.data)) 
+  }
+  
+  useEffect(()=>{
+    getData()
+  },[])
+
   return (
     <>
       <Flex onClick={onOpen} gap="0.5rem" color="#2ab6f6" cursor="pointer">
@@ -47,16 +60,19 @@ function InitialFocus({ addProject }) {
               <FormLabel>Enter new project name</FormLabel>
               <Input ref={initialRef} placeholder="First name" />
             </FormControl>
-
-            <Box
-              onClick={() => setProject("P1")}
-              _hover={{ bg: "gray" }}
-              vlaue="project1"
-              cursor="pointer"
-            >
-              Project 1
-            </Box>
-            <Box
+   
+   {data?.map(el=>(
+    <Box key={el._id}
+    onClick={() => setProject({name:el.name,tag:el.tag})}
+    _hover={{ bg: "gray" }}
+    vlaue="project1"
+    cursor="pointer"
+  >
+ {el.name}
+  </Box>
+   ))}
+           
+            {/* <Box
               onClick={() => setProject("P2")}
               _hover={{ bg: "gray" }}
               cursor="pointer"
@@ -69,7 +85,7 @@ function InitialFocus({ addProject }) {
               cursor="pointer"
             >
               Project 3
-            </Box>
+            </Box> */}
           </ModalBody>
 
           <ModalFooter>

@@ -14,12 +14,14 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  
   const handleSignup = () => {
     const payload = {
       email: email,
@@ -29,9 +31,30 @@ const Signup = () => {
       .post(`https://clockify-api.herokuapp.com/signup`, payload)
       .then((r) => {
         console.log(r.data);
+        navigate("/login");
       })
-      .catch((e) => console.log(e));
+      .catch(
+        (e) => setError(true)
+        // console.log(e)
+      );
   };
+  const handleGoogleLogin = async() => {
+    await axios.get("https://clockify-api.herokuapp.com/auth/google",
+    {headers: {
+      'Access-Control-Allow-Origin':'*',
+      'Content-Type': 'application/json',
+    }})
+    .then((r)=>{
+      console.log(r)
+      if (r.data.token) {
+        localStorage.setItem("login_token", r.data.token);
+        localStorage.setItem("email", r.data.email);
+        navigate("/clockify/");
+      }
+    }).catch((e) => {
+    console.log(e);
+  });
+};
 
   return (
     <Box bg={"#f2f6f8"} h={"auto"}>
@@ -88,7 +111,8 @@ const Signup = () => {
             fontWeight={"400"}
             lineHeight={"1.5"}
             mb={"20px"}
-          >Create a free account to start tracking time and supercharge your
+          >
+            Create a free account to start tracking time and supercharge your
             productivity.
           </Text>
           <Text
@@ -145,6 +169,13 @@ const Signup = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </FormControl>
+                {error && (
+                  <Box>
+                    <Text textAlign={"left"} color={"red"} fontSize={"18px"}>
+                      User already exists
+                    </Text>
+                  </Box>
+                )}
                 <Stack spacing={10}>
                   <Stack
                     direction={{ base: "column", sm: "row" }}
@@ -198,7 +229,8 @@ const Signup = () => {
                       mt={"8px"}
                       w={"400px"}
                       fontSize={"19px"}
-                      color={"#666"}
+                      color={"#666"} 
+                      onClick={handleGoogleLogin}
                     >
                       Continue with google
                     </Text>
