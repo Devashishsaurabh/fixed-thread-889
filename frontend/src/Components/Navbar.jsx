@@ -16,10 +16,7 @@ const Navbar = () => {
       <div className='box3'>
       <Link to ="/login"><p className='blue'>log in </p></Link>
          <Link to="/signup"><button className='signup'>sign up free</button></Link>
-
-
       </div>
-
       </div>
     </div>
 
