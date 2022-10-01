@@ -13,7 +13,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -44,10 +44,23 @@ const Login = () => {
       });
   };
 
-  const handleGoogleLogin = () => {
-    navigate("/auth/google");
+  const handleGoogleLogin = async() => {
+      await axios.get("https://clockify-api.herokuapp.com/auth/google",
+      {headers: {
+        'Access-Control-Allow-Origin':'*',
+        'Content-Type': 'application/json',
+      }})
+      .then((r)=>{
+        console.log(r)
+        if (r.data.token) {
+          localStorage.setItem("login_token", r.data.token);
+          localStorage.setItem("email", r.data.email);
+          navigate("/clockify/");
+        }
+      }).catch((e) => {
+      console.log(e);
+    });
   };
-
   return (
     <Flex>
       <Box bg={"#f2f6f8"} h={"auto"} w={"70%"}>
@@ -67,7 +80,7 @@ const Login = () => {
             <Spacer />
             <Link to="/signup">
               <Text fontSize={"20px"} color={"#03a9f4"}>
-                Sign In
+                Sign Up
               </Text>
             </Link>
           </Flex>
@@ -100,7 +113,7 @@ const Login = () => {
                   p={"20px"}
                   pl={"0px"}
                 >
-                  Sign up
+                  Log in
                 </Text>
                 <Stack spacing={4}>
                   <FormControl id="email">

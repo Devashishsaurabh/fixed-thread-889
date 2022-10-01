@@ -31,13 +31,30 @@ const Signup = () => {
       .post(`https://clockify-api.herokuapp.com/signup`, payload)
       .then((r) => {
         console.log(r.data);
-        navigate("'/login");
+        navigate("/login");
       })
       .catch(
         (e) => setError(true)
         // console.log(e)
       );
   };
+  const handleGoogleLogin = async() => {
+    await axios.get("https://clockify-api.herokuapp.com/auth/google",
+    {headers: {
+      'Access-Control-Allow-Origin':'*',
+      'Content-Type': 'application/json',
+    }})
+    .then((r)=>{
+      console.log(r)
+      if (r.data.token) {
+        localStorage.setItem("login_token", r.data.token);
+        localStorage.setItem("email", r.data.email);
+        navigate("/clockify/");
+      }
+    }).catch((e) => {
+    console.log(e);
+  });
+};
 
   return (
     <Box bg={"#f2f6f8"} h={"auto"}>
@@ -212,7 +229,8 @@ const Signup = () => {
                       mt={"8px"}
                       w={"400px"}
                       fontSize={"19px"}
-                      color={"#666"}
+                      color={"#666"} 
+                      onClick={handleGoogleLogin}
                     >
                       Continue with google
                     </Text>

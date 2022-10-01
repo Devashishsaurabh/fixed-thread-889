@@ -7,8 +7,9 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Downloads from "./Downloads";
 import AfterLoginRoutes from "./AfterLogin/AfterLoginRoutes";
-import RequiredAuth from "../HOC/RequiredAuth";
+
 import Features from './Features';
+import RequiredAuth from "../HOC/RequiredAuth";
 
 const MainRoutes = () => {
   return (

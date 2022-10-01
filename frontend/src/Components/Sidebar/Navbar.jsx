@@ -34,7 +34,7 @@ const Navbar = ({ children }) => {
 }
   const MobileNav = ({ onOpen, ...rest }) => {
     const navigate= useNavigate()
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem("email");
     const signoutHandler = () => {
         localStorage.clear()
         navigate("/" ,{ replace: true} )
@@ -66,7 +66,7 @@ const Navbar = ({ children }) => {
   
         <HStack spacing={{ base: "0", md: "8" }}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            <Text>{user}</Text>
+            <Text>{user} workspace</Text>
             <Text
               border={"1px solid #8ad9fa"}
               fontSize={["2", "8", "12"]}
@@ -74,7 +74,7 @@ const Navbar = ({ children }) => {
               textDecor="none"
               _hover={{ bg: "#8ad7fa", color: "#fff" }}
               p={[1]}
-            >
+            > 
               <RouterLink to="/clockify/upgrade">UPGRADE</RouterLink>
             </Text>
             <Box>
