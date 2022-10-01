@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { BsTags } from "react-icons/bs";
@@ -10,6 +11,10 @@ import { BiCalendar } from "react-icons/bi";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
+import { Box, Text ,useColorModeValue} from "@chakra-ui/react";
+import {useNavigate} from "react-router-dom"
+
+
 const Sidebar = () => {
   const navigate = useNavigate();
   return (
@@ -27,6 +32,9 @@ const Sidebar = () => {
       z-index="1"
       top="0"
       overflowY= "scroll"
+     borderRight="1px" borderBottom="1px"
+    borderBottomColor={useColorModeValue("gray.200", "gray.700")} borderRightColor={useColorModeValue("gray.200", "gray.700")}
+
     >
       <Box
         w="100%"
@@ -141,8 +149,6 @@ const Sidebar = () => {
         <FiSettings fontSize="30px"/>
         <Text as="b">SETTINGS</Text>
       </Box>
-    </Box>
   );
 };
-
 export default Sidebar;

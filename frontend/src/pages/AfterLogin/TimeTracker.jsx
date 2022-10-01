@@ -114,10 +114,15 @@ setProject(data)
 
 
   return (
-    <Box w="80vw" h="150vh"  bg="#e4eaee" ml="20rem" overflow={"none"}>
+
+    <Box w="82vw" h="150vh"  bg="#e4eaee" ml="20rem" overflow={"none"}>
      <Flex w="80%"  m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
      {/* <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} /> */}
      <Input variant='filled' placeholder='Filled' w="35%" />
+//     <Box w="82vw" h="100vh" bg="#e4eaee" pt="2rem">
+//      <Flex w="80%" m="auto" p="1rem" justifyContent={"space-between"}bg="white" alignItems={"center"}>
+//      <Textarea w="35%" h={"1rem"} placeholder='Here is a sample placeholder' onChange={(e)=>setDept(e.target.value)} />
+
       <InitialFocus addProject={addProject}/>
      <Box w="10%"><Text fontSize={"2rem"} as={"b"}>{`${hour}: ${minute}: ${watch} `}</Text> </Box>
      <Button width={"15%"} onClick={start} cursor="pointer">Start</Button>
