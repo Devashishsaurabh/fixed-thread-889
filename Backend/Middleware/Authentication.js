@@ -1,3 +1,4 @@
+const jwt=require("jsonwebtoken");
 const authentication = (req, res, next) => {
   if (!req.headers.authorization) {
     return res.send("Login to see the content");
@@ -7,8 +8,7 @@ const authentication = (req, res, next) => {
     if (err) {
       return res.send("please Login");
     }
-    console.log(decoded);
-    req.body.email = decoded.email;
+    req.body.userEmail = decoded.email;
     req.body.userId = decoded.userId;
     next();
   });

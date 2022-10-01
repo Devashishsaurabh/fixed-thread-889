@@ -10,17 +10,35 @@ import {
   Stack,
   Button,
   useColorModeValue,
+  Divider,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
-// {{ base: '0-48', md: '48-62', lg: '62-upword' }}
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  
   const handleSignup = () => {
-    console.log(email, password);
+    const payload = {
+      email: email,
+      password: password,
+    };
+    axios
+      .post(`https://clockify-api.herokuapp.com/signup`, payload)
+      .then((r) => {
+        console.log(r.data);
+        navigate("'/login");
+      })
+      .catch(
+        (e) => setError(true)
+        // console.log(e)
+      );
   };
+
   return (
     <Box bg={"#f2f6f8"} h={"auto"}>
       <Flex
@@ -35,9 +53,11 @@ const Signup = () => {
         </Box>
         <Spacer />
         <Box h={"100%"} w={"100px"}>
-          <Text fontSize={"20px"} color={"#03a9f4"}>
-            Log In
-          </Text>
+          <Link to="/login">
+            <Text fontSize={"20px"} color={"#03a9f4"}>
+              Log In
+            </Text>
+          </Link>
         </Box>
       </Flex>
 
@@ -132,6 +152,13 @@ const Signup = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </FormControl>
+                {error && (
+                  <Box>
+                    <Text textAlign={"left"} color={"red"} fontSize={"18px"}>
+                      User already exists
+                    </Text>
+                  </Box>
+                )}
                 <Stack spacing={10}>
                   <Stack
                     direction={{ base: "column", sm: "row" }}
@@ -154,15 +181,13 @@ const Signup = () => {
                   >
                     CREATE FREE ACCOUNT
                   </Button>
-                  <p
-                    style={{
-                      marginTop: "20px",
-                      marginBottom: "-10px",
-                      fontSize: "20px",
-                    }}
-                  >
-                    OR
-                  </p>
+                  <Flex alignItems="center" gap="2">
+                    <Divider orientation="horizontal" w={"48%"}></Divider>
+                    <Box>
+                      <Text fontSize={"20px"}>OR</Text>
+                    </Box>
+                    <Divider orientation="horizontal" w={"48%"}></Divider>
+                  </Flex>
 
                   <Flex
                     justifyContent={"center"}

@@ -24,10 +24,10 @@ const Track = () => {
         ]}
         gap={["2", "3", "5", "10"]}
       >
-        <TrackCard />
-        <TrackCard />
-        <TrackCard />
-        <TrackCard />
+        <TrackCard id={1}  heading={"Boost Productivity"} text={"Track time you spend on activities, see where your time goes, and improve your time management skills."}  />
+        <TrackCard id={2} heading={"Business intelligence"} text={"Track billable time and expenses, show clients how much you've worked, see how much you've earned, and create invoices."}  />
+        <TrackCard id={3}  heading={"Manage team"} text={"Track attendance for payroll and accounting, see who works on what, and manage workload among teams."} />
+        <TrackCard id={4} heading={"Bill clients"} text={"Track time and analyze your company's efficiency across projects, clients, departments, and employees."}  />
       </Grid>
       <Box textAlign="center">
         <Text color="gray">MORE USE CASES</Text>

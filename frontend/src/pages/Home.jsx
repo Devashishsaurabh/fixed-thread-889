@@ -1,7 +1,8 @@
-import  Button  from "../Components/Home/Button"
-import React from 'react'
-import Header from '../Components/Home/Header'
 
+import axios from 'axios'
+import React from 'react'
+import  Button  from "../Components/Home/Button"
+import Header from '../Components/Home/Header'
 import Free from '../Components/HomeSections/Free'
 import Rating from '../Components/HomeSections/Rating'
 import Support from '../Components/HomeSections/Support'
