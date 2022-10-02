@@ -48,7 +48,8 @@ const Login = () => {
       await axios.get("https://clockify-api.herokuapp.com/auth/google",
       {headers: {
         'Access-Control-Allow-Origin':'*',
-        'Content-Type': 'application/json',
+        'content-type': 'application/x-www-form-urlencoded',
+        "Referrer-Policy": 'no-referrer, strict-origin-when-cross-origin'
       }})
       .then((r)=>{
         console.log(r)
