@@ -3,6 +3,7 @@ import "../styles/Auto.css"
 const Auto =()=>{
     return(
         <div className="auto">
+            <div className="auto1">
     <div>
         <img src="https://clockify.me/assets/images/time-tracking-app-desktop.png" width="500px"/>
         <h3 className="desktop">DESKTOP APP</h3>
@@ -17,7 +18,7 @@ const Auto =()=>{
         <button className="sign">Mac</button>
         <button className="sign">Linux</button>
     </div>
-
+    </div>
         </div>
     )
 }

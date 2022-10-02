@@ -1,8 +1,9 @@
 .keep{
+    width:50%;
+    margin:auto;
     display: flex;
     flex-direction: row;
-    margin-left: 256px;
-    gap: 100px;
+    gap: 100px;   
     margin-top: 60px;
 }
 .t{

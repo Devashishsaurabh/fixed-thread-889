@@ -1,8 +1,10 @@
 .disney{
-    margin-left: 250px;
     margin-top: 45px;
-  
 }
 .bug{
-    margin: 5px 0px 0px 170px;
+    margin: auto;
+}
+.container{
+    margin: auto;
+    width:60%;
 }

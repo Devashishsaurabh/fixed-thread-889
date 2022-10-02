@@ -4,7 +4,7 @@ import "../styles/ImageBar.css"
 
 const ImageBar=()=>{
     return(
-        <div>
+        <div className="container">
         <div className="disney">
      <img src="https://clockify.me/assets/images/customers-light-gray-3.svg" />
         </div>

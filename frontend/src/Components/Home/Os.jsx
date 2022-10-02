@@ -5,6 +5,7 @@ import "../styles/Os.css"
 const Os =()=>{
     return(
         <div className="os">
+            <div className="auto1">
 
 <div>
         <img src="https://clockify.me/assets/images/time-tracking-app-mobile.png" width="500px"/>
@@ -20,6 +21,7 @@ const Os =()=>{
         
     </div>
 
+        </div>
         </div>
     )
 }

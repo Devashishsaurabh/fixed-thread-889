@@ -1,12 +1,16 @@
 .auto{
+    width:100%;
+    background-color: #f7fcff;
+    
+}
+.auto1{
+    width:60%;
+    margin:auto;
     display: flex;
     flex-direction: row;
     gap: 10px;
-    margin-left: 230px;
     margin-top: 50px;
-    background-color: #f7fcff;
 }
-
 .desktop{
     margin-top: 10px;
     color:#3d485d;
