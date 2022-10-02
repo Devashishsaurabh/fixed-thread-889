@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [data,setData]= useState([])
   const [project,setProject]= useState([])
   let getData=async()=>{
-    await axios.get("https://clockify-api.herokuapp.com/task",
+    await axios.get("https://clockify-api1.herokuapp.com/task",
     {headers: {'authorization' : `Bearer ${token}`}})
     .then(res=>(
       console.log(res.data),

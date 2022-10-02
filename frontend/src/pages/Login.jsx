@@ -28,7 +28,7 @@ const Login = () => {
       password: password,
     };
     axios
-      .post("https://clockify-api.herokuapp.com/login", payload)
+      .post("https://clockify-api1.herokuapp.com/login", payload)
       .then((r) => {
         console.log(r.data);
         if (r.data.token) {

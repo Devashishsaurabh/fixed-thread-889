@@ -14,7 +14,7 @@ console.log(data)
 
 let token= localStorage.getItem("login_token")
 let getData=async()=>{
-  await axios.get("https://clockify-api.herokuapp.com/project",
+  await axios.get("https://clockify-api1.herokuapp.com/project",
   {headers: {'authorization' : `Bearer ${token}`}})
   .then(res=>setData(res.data)) 
 }
@@ -22,7 +22,7 @@ let getData=async()=>{
 
 const handledelete = async(id)=>{
   console.log(id)
-  await axios.delete(`https://clockify-api.herokuapp.com/project/delete/${id}`,
+  await axios.delete(`https://clockify-api1.herokuapp.com/project/delete/${id}`,
   {headers: {'authorization' : `Bearer ${token}`}})
   .then((res)=>console.log(res)) 
   .then(()=>getData())

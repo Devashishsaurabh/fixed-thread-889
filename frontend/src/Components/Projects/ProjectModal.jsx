@@ -27,7 +27,7 @@ function ProjectModal({setStatus,status}) {
 
 
 let getData=async()=>{
-       await axios.get("https://clockify-api.herokuapp.com/project",
+       await axios.get("https://clockify-api1.herokuapp.com/project",
        {headers: {'authorization' : `Bearer ${token}`}})
        .then(res=>setStatus(!status)) 
 }
@@ -39,7 +39,7 @@ let getData=async()=>{
         billable:false
     }
     
-    await axios.post("https://clockify-api.herokuapp.com/project/create",newProject,
+    await axios.post("https://clockify-api1.herokuapp.com/project/create",newProject,
     {headers: {'authorization' : `Bearer ${token}`}}
     ).then(res=>console.log(res.data.newProject))
     .then(()=>getData())

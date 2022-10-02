@@ -53,7 +53,7 @@ const TimeTracker = () => {
 
 
   let getData=async()=>{
-    await axios.get("https://clockify-api.herokuapp.com/task",
+    await axios.get("https://clockify-api1.herokuapp.com/task",
     {headers: {'authorization' : `Bearer ${token}`}})
     .then(res=>(
       console.log(res.data),
@@ -75,7 +75,7 @@ useEffect(()=>{
     }
     console.log(newProject)
     
-    await axios.post("https://clockify-api.herokuapp.com/task/create",newProject,
+    await axios.post("https://clockify-api1.herokuapp.com/task/create",newProject,
     {headers: {'authorization' : `Bearer ${token}`}}
     ).then(res=>console.log(res.data))
     .then(()=>getData())
