@@ -124,7 +124,7 @@ const Navbar = ({ children }) => {
                 <MenuItem>Profile</MenuItem>
                 <MenuItem>Settings</MenuItem>
                 <MenuItem>Billing</MenuItem>
-                <RouterLink to='/upgrade'><MenuItem>Upgrade</MenuItem></RouterLink>
+                <RouterLink to='/clockify/upgrade'><MenuItem>Upgrade</MenuItem></RouterLink>
                 <MenuDivider />
                 <MenuItem
                   cursor={"pointer"}

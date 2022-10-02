@@ -79,7 +79,7 @@ export default function Navbar() {
                 <Text>{user}</Text>
               )}
             </Button>
-            <Button
+            {!user ? <Button
               variant={"outline"}
               color={"blue.400"}
               borderColor={"blue.400"}
@@ -92,6 +92,8 @@ export default function Navbar() {
             >
               <RouterLink to={"/signup"}>SIGN UP FREE</RouterLink>
             </Button>
+            : ""
+             }
           </Flex>
         </Flex>
 
