@@ -6,7 +6,7 @@ The most popular free time tracker for teams. Time tracking software used by mil
 2. Fork this repository https://github.com/Devashishsaurabh/fixed-thread-889
 3. Clone the Forked repository.
    - **_Note_**: This Clone repository should be on your github account.
-4. navigate to the folder `meaty-hands-288`
+4. navigate to the folder `fixed-thread-889`
 5. npm install
 6. npm start
 7. To Visit App:
