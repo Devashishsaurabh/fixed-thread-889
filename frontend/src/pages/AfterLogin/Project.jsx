@@ -5,16 +5,27 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import ProjectModal from '../../Components/Projects/ProjectModal';
 import axios from 'axios';
 import { BsTags } from "react-icons/bs";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { async } from 'q';
 const Project = () => {
 let [data,setData]= useState([])
 const [status,setStatus]= useState(false)
-
+console.log(data)
 
 let token= localStorage.getItem("login_token")
 let getData=async()=>{
   await axios.get("https://clockify-api.herokuapp.com/project",
   {headers: {'authorization' : `Bearer ${token}`}})
   .then(res=>setData(res.data)) 
+}
+
+
+const handledelete = async(id)=>{
+  console.log(id)
+  await axios.delete(`https://clockify-api.herokuapp.com/project/delete/${id}`,
+  {headers: {'authorization' : `Bearer ${token}`}})
+  .then((res)=>console.log(res)) 
+  .then(()=>getData())
 }
 
 useEffect(()=>{
@@ -66,10 +77,10 @@ useEffect(()=>{
     <Box w="80%" m="auto">
      {data?.map(el=>(
       <Flex w="60vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"} key={"el._id"}>
-        <Box border="1px solid black" padding={"0 1rem 0 1rem"} boxShadow= "5px 10px #888888"><Text as="b">{el.tag}</Text></Box>
+        <Box border="1px solid black" padding={"0 1rem 0 1rem"} ><Text as="b">{el.tag}</Text></Box>
         <Box><Text as="b" color={"black"} bg="#e1f5fe" padding={"0.5rem 1rem 0.5rem 1rem"}>{`Project: ${el.name}`}</Text></Box>
         <Box><BsTags fontSize={"30px"}/></Box>
-
+       <BsThreeDotsVertical cursor={"pointer"} onClick={()=>handledelete(el._id)} />
         {/* <Box border={"1px solid black"} padding={"0 1rem 0 1rem"}><Text as="b" color="green">{`Time taken: ${el.totalTime} sec`}</Text></Box> */}
       </Flex>
      ))}

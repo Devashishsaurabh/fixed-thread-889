@@ -4,6 +4,7 @@ import { Button, Input, Textarea } from '@chakra-ui/react'
 import InitialFocus from '../../Components/Timetracker/ProjectModal';
 import axios from 'axios';
 import { BsTags } from "react-icons/bs";
+import { useDisclosure } from '@chakra-ui/react-use-disclosure';
 const TimeTracker = () => {
   const [watch, setWatch]= useState(0)
   const [minute,setminute]=useState(0)
@@ -14,6 +15,7 @@ const TimeTracker = () => {
   
   const timerId=useRef(null);
   let token= localStorage.getItem("login_token")
+  // const {onClose}= useDisclosure()
   // let getData=async()=>{
   //   await axios.get("https://clockify-api.herokuapp.com/project",
   //   {headers: {'authorization' : `Bearer ${token}`}})
@@ -133,10 +135,10 @@ setProject(data)
      <Box w="80%" m="auto">
      {data!="No Task" && data.map(el=>(
       <Flex w="60vw" h="5rem" bg={"white"} gap="1rem" m={"1rem"} justify="space-evenly" alignItems={"center"} >
-        <Box border="1px solid black" padding={"1rem 1rem 1rem 1rem"}  boxShadow= "5px 10px #888888"><Text as="b">{el.name}</Text></Box>
+        <Box border="1px solid #c6d2d9" padding={"1rem 1rem 1rem 1rem"} ><Text as="b">{el.name}</Text></Box>
         <Box><Text as="b" color={"black"} bg="#e1f5fe" padding={"1rem"}>{`Project: ${el.name}`}</Text></Box>
-        <Box display={"flex"} gap="1rem"><BsTags fontSize={"30px"}/><Text>{el.tag}</Text></Box>
-
+        <Box display={"flex"} gap="1rem"><BsTags fontSize={"30px"}/><Text as="b" color="black">{el.tag}</Text></Box>
+        
         <Box border={"1px solid black"} padding={"0 1rem 0 1rem"}><Text as="b" color="green">{`Time taken: ${el.endAt} sec`}</Text></Box>
       </Flex>
      ))}
