@@ -43,6 +43,7 @@ const Signup = () => {
     {headers: {
       'Access-Control-Allow-Origin':'*',
       'Content-Type': 'application/json',
+      "Referrer-Policy": 'no-referrer, strict-origin-when-cross-origin'
     }})
     .then((r)=>{
       console.log(r)
