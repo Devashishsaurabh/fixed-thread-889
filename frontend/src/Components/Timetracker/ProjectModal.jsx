@@ -92,7 +92,7 @@ function InitialFocus({ addProject }) {
             <Button
               colorScheme="blue"
               mr={3}
-              onClick={() => addProject(project)}
+              onClick={() => (addProject(project),onClose())}
             >
               Save
             </Button>
