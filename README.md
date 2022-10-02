@@ -2,7 +2,7 @@
 The most popular free time tracker for teams. Time tracking software used by millions. Clockify is a time tracker and timesheet app that lets you track work hours across projects. Unlimited users, free forever.
 
 ## Getting Started
-1. Live Link 
+1. Live Link :- https://clockify-clone-masai.netlify.app/
 2. Fork this repository https://github.com/Devashishsaurabh/fixed-thread-889
 3. Clone the Forked repository.
    - **_Note_**: This Clone repository should be on your github account.
