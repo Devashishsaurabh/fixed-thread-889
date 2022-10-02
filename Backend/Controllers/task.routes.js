@@ -6,22 +6,21 @@ const taskController = express.Router();
 taskController.get("/", async (req, res) => {
   const { userEmail } = req.body;
   const { project } = req.query;
-  const task = await Task.find({ project ,userEmail});
+  const task = await Task.find({ project, userEmail });
   try {
-    if(task.length===0){
-        res.status(401).send("No Task");
-    }else{
-        res.status(200).send(task);
+    if (task.length === 0) {
+      res.status(401).send("No Task");
+    } else {
+      res.status(200).send(task);
     }
-    
   } catch (err) {
     res.status(500).send("Internal Server Error!");
   }
 });
 
 taskController.post("/create", async (req, res) => {
-    try {
-      const newTask =  Task.create(req.body);
+  try {
+    const newTask = Task.create(req.body);
     res.status(201).send({ message: "New task added!", newTask });
   } catch (err) {
     res.status(500).send("Internal server error!");

@@ -44,23 +44,26 @@ const Login = () => {
       });
   };
 
-  const handleGoogleLogin = async() => {
-      await axios.get("https://clockify-api.herokuapp.com/auth/google",
-      {headers: {
-        'Access-Control-Allow-Origin':'*',
-        'content-type': 'application/x-www-form-urlencoded',
-        "Referrer-Policy": 'no-referrer, strict-origin-when-cross-origin'
-      }})
-      .then((r)=>{
-        console.log(r)
+  const handleGoogleLogin = async () => {
+    await axios
+      .get("https://clockify-api.herokuapp.com/auth/google", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "content-type": "application/x-www-form-urlencoded",
+          "Referrer-Policy": "no-referrer, strict-origin-when-cross-origin",
+        },
+      })
+      .then((r) => {
+        console.log(r);
         if (r.data.token) {
           localStorage.setItem("login_token", r.data.token);
           localStorage.setItem("email", r.data.email);
           navigate("/clockify/");
         }
-      }).catch((e) => {
-      console.log(e);
-    });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <Flex>

@@ -1,4 +1,4 @@
-const jwt=require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const authentication = (req, res, next) => {
   if (!req.headers.authorization) {
     return res.send("Login to see the content");

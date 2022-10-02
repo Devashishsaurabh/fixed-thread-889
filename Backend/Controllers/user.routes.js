@@ -7,24 +7,23 @@ dotenv.config();
 
 const userController = express.Router();
 
-userController.get("/user",async (req,res)=>{
-  const user = await User.find()
-  res.send(user)
-})
-
+userController.get("/user", async (req, res) => {
+  const user = await User.find();
+  res.send(user);
+});
 
 userController.post("/signup", async (req, res) => {
   const { email, password } = req.body;
-   const user = await User.findOne({ email });
-   if (user) {
-    return res.status(400).send({ ok: false, msg: 'User Already exist' });
+  const user = await User.findOne({ email });
+  if (user) {
+    return res.status(400).send({ ok: false, msg: "User Already exist" });
   }
-  await bcrypt.hash(password, 8,  function (err, hash) {
+  await bcrypt.hash(password, 8, function (err, hash) {
     if (err) {
       res.status(400).send("Try again");
     }
     const user = new User({ email, password: hash });
-    user.save()
+    user.save();
     res.status(201).send(user);
   });
 });
@@ -47,4 +46,4 @@ userController.post("/login", async (req, res) => {
   });
 });
 
-module.exports = userController
+module.exports = userController;

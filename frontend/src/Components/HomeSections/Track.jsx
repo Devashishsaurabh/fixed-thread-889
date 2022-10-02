@@ -24,32 +24,56 @@ const Track = () => {
         ]}
         gap={["2", "3", "5", "10"]}
       >
-        <TrackCard id={1}  heading={"Boost Productivity"} text={"Track time you spend on activities, see where your time goes, and improve your time management skills."}  />
-        <TrackCard id={2} heading={"Business intelligence"} text={"Track billable time and expenses, show clients how much you've worked, see how much you've earned, and create invoices."}  />
-        <TrackCard id={3}  heading={"Manage team"} text={"Track attendance for payroll and accounting, see who works on what, and manage workload among teams."} />
-        <TrackCard id={4} heading={"Bill clients"} text={"Track time and analyze your company's efficiency across projects, clients, departments, and employees."}  />
+        <TrackCard
+          id={1}
+          heading={"Boost Productivity"}
+          text={
+            "Track time you spend on activities, see where your time goes, and improve your time management skills."
+          }
+        />
+        <TrackCard
+          id={2}
+          heading={"Business intelligence"}
+          text={
+            "Track billable time and expenses, show clients how much you've worked, see how much you've earned, and create invoices."
+          }
+        />
+        <TrackCard
+          id={3}
+          heading={"Manage team"}
+          text={
+            "Track attendance for payroll and accounting, see who works on what, and manage workload among teams."
+          }
+        />
+        <TrackCard
+          id={4}
+          heading={"Bill clients"}
+          text={
+            "Track time and analyze your company's efficiency across projects, clients, departments, and employees."
+          }
+        />
       </Grid>
       <Box textAlign="center">
         <Text color="gray">MORE USE CASES</Text>
       </Box>
       <Box my="10px" textAlign="center">
         <Button colorScheme="teal" variant="outline">
-        Time Clock
+          Time Clock
         </Button>{" "}
         <Button colorScheme="teal" variant="outline">
-        Work Hours Tracker
+          Work Hours Tracker
         </Button>{" "}
         <Button colorScheme="teal" variant="outline">
-        Employee Time Tracker
+          Employee Time Tracker
         </Button>{" "}
         <Button colorScheme="teal" variant="outline">
-        Attendance Tracker
+          Attendance Tracker
         </Button>{" "}
         <Button colorScheme="teal" variant="outline">
-        Task Timer
+          Task Timer
         </Button>{" "}
         <Button colorScheme="teal" variant="outline">
-        Time Card Calculator
+          Time Card Calculator
         </Button>
       </Box>
     </Box>

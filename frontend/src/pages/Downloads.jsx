@@ -12,7 +12,6 @@ import {
   Tooltip,
   Heading,
   Flex,
-
 } from "@chakra-ui/react";
 import { FaUsers } from "react-icons/fa";
 import styles from "./download.style.module.css";
@@ -23,51 +22,49 @@ const Downloads = () => {
       <Headers />
 
       <Box bg={"#f7fcff"} p="4rem">
-      <Heading
-        mt={20}
-        mb={2}
-        textAlign={"center"}
-        fontWeight={"400"}
-        size={["lg", "xl"]}
-        color={"gray.600"}
-      >
-        Start tracking time with Clockify
-      </Heading>
-      <Text textAlign={"center"} fontSize={["xs", "sm"]} color={"gray"}>
-        24/7 Support • Cancel Anytime • Free Forever
-      </Text>
-      <Flex flexDir={"column"} alignItems={"center"} mt={10}>
-        <Button
-          color={"white"}
-          p={[1, 7]}
-          boxShadow={"md"}
-          _hover={{ bg: "blue.400" }}
-          bgColor={"#03A9F4"}
-          borderBottom={"4px solid #008CCF"}
-          w={"280px"}
-          h={"56px"}
+        <Heading
+          mt={20}
+          mb={2}
+          textAlign={"center"}
+          fontWeight={"400"}
+          size={["lg", "xl"]}
+          color={"gray.600"}
         >
-          <Link to="/">
-            <Text fontWeight={400} fontSize={["xs", "md"]}>
-              CREATE FREE ACCOUNT
-            </Text>
-          </Link>
-        </Button>
-        <Button
-          p={0}
-          colorScheme={"none"}
-          color={"blue.400"}
-          _hover={{ textDecoration: "underline" }}
-        >
-          <Image
-            src={"https://clockify.me/assets/images/signed-up-icon.svg"}
-          ></Image>
-          <Text fontSize={"xs"} ml={"1"}>
+          Start tracking time with Clockify
+        </Heading>
+        <Text textAlign={"center"} fontSize={["xs", "sm"]} color={"gray"}>
+          24/7 Support • Cancel Anytime • Free Forever
+        </Text>
+        <Flex flexDir={"column"} alignItems={"center"} mt={10}>
+          <Button
+            color={"white"}
+            p={[1, 7]}
+            boxShadow={"md"}
+            _hover={{ bg: "blue.400" }}
+            bgColor={"#03A9F4"}
+            borderBottom={"4px solid #008CCF"}
+            w={"280px"}
+            h={"56px"}
+          >
             <Link to="/">
-              134,602 people signed up last month
+              <Text fontWeight={400} fontSize={["xs", "md"]}>
+                CREATE FREE ACCOUNT
+              </Text>
             </Link>
-          </Text>
-        </Button>
+          </Button>
+          <Button
+            p={0}
+            colorScheme={"none"}
+            color={"blue.400"}
+            _hover={{ textDecoration: "underline" }}
+          >
+            <Image
+              src={"https://clockify.me/assets/images/signed-up-icon.svg"}
+            ></Image>
+            <Text fontSize={"xs"} ml={"1"}>
+              <Link to="/">134,602 people signed up last month</Link>
+            </Text>
+          </Button>
         </Flex>
       </Box>
     </Box>
@@ -86,10 +83,13 @@ const Headers = () => {
         mt="5rem"
         gap={"2"}
       >
-        <Heading  
-        fontWeight={"400"}
-        size={["lg", "2xl"]}
-        color={"gray.600"} pt="1" pb="4">
+        <Heading
+          fontWeight={"400"}
+          size={["lg", "2xl"]}
+          color={"gray.600"}
+          pt="1"
+          pb="4"
+        >
           Time tracking apps
         </Heading>
       </Box>
@@ -126,7 +126,7 @@ const DeviceDiff = () => {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      gap={["2","3","5"]}
+      gap={["2", "3", "5"]}
       p={"2"}
       flexWrap={"wrap"}
     >
@@ -136,7 +136,7 @@ const DeviceDiff = () => {
             cursor={"pointer"}
             color={"#03a9f4"}
             fontWeight={"600"}
-            fontSize={["1.0rem","1.2rem","1.5rem"]}
+            fontSize={["1.0rem", "1.2rem", "1.5rem"]}
             _hover={{ textDecoration: "underline" }}
           >
             {el}

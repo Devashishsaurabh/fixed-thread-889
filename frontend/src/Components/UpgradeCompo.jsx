@@ -25,8 +25,6 @@ function PriceWrapper({ children }) {
       alignSelf={{ base: "center", lg: "flex-start" }}
       borderColor={useColorModeValue("gray.200", "gray.500")}
       borderRadius={"xl"}
-      
-      
     >
       {children}
     </Box>
@@ -48,8 +46,8 @@ export default function UpgradeCompo() {
     // }
   };
   return (
-    <div >
-      <Box py={12}  w="80%" m="auto">
+    <div>
+      <Box py={12} w="80%" m="auto">
         <Stack direction={["column", "row"]} justify="end" spacing="24px">
           <Button
             justifyContent="right"
@@ -57,7 +55,6 @@ export default function UpgradeCompo() {
             textAlign={"cent"}
             borderColor="blue.200"
             color="blue.300"
-           
           >
             SCHEDULE LIVE DEMO
           </Button>
@@ -344,10 +341,10 @@ export default function UpgradeCompo() {
           </PriceWrapper>
         </Stack>
       </Box>
-      <Box textAlign={"center"} mb="2.5rem"   w="80%">
+      <Box textAlign={"center"} mb="2.5rem" w="80%">
         <Text color={"#999999"}>Trusted by thousands of companies</Text>
       </Box>
-      <SimpleGrid  w="80%" m="auto" columns={[2, 4, 8]} spacing="5px"   >
+      <SimpleGrid w="80%" m="auto" columns={[2, 4, 8]} spacing="5px">
         <Box height="80px">
           <img
             src="https://app.clockify.me/assets/clients-logos/Group1.svg"
@@ -398,12 +395,12 @@ export default function UpgradeCompo() {
         </Box>
       </SimpleGrid>
 
-      <Box textAlign={"center"} mb="2.5rem"  w="80%">
+      <Box textAlign={"center"} mb="2.5rem" w="80%">
         <Text fontWeight={"600"} fontSize={"2xl"} color={"#666666"}>
           Frequently asked questions
         </Text>
       </Box>
-      <SimpleGrid columns={[1, 1, 2]} spacing="40px"  w="80%" m="auto">
+      <SimpleGrid columns={[1, 1, 2]} spacing="40px" w="80%" m="auto">
         <Box height="80px">
           <Text fontWeight={"700"} fontSize={"lg"}>
             Can I try it out first?

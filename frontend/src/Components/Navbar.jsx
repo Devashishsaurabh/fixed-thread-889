@@ -34,7 +34,7 @@ const NavLink = ({ children }) => (
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user  = localStorage.getItem("email");
+  const user = localStorage.getItem("email");
   return (
     <>
       <Box py={[1, 3]} px={[null, 20]} mb={10}>
@@ -79,21 +79,23 @@ export default function Navbar() {
                 <Text>{user}</Text>
               )}
             </Button>
-            {!user ? <Button
-              variant={"outline"}
-              color={"blue.400"}
-              borderColor={"blue.400"}
-              borderRadius={"sm"}
-              _hover={{ color: "white", bg: "blue.400" }}
-              size={["xs", "sm"]}
-              mr={4}
-              px={7}
-              py={5}
-            >
-              <RouterLink to={"/signup"}>SIGN UP FREE</RouterLink>
-            </Button>
-            : ""
-             }
+            {!user ? (
+              <Button
+                variant={"outline"}
+                color={"blue.400"}
+                borderColor={"blue.400"}
+                borderRadius={"sm"}
+                _hover={{ color: "white", bg: "blue.400" }}
+                size={["xs", "sm"]}
+                mr={4}
+                px={7}
+                py={5}
+              >
+                <RouterLink to={"/signup"}>SIGN UP FREE</RouterLink>
+              </Button>
+            ) : (
+              ""
+            )}
           </Flex>
         </Flex>
 

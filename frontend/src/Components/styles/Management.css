@@ -1,15 +1,15 @@
-.manage{
-    text-align: center;  
-width:60%;
-margin :auto;
-margin-top: 80px;
+.manage {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  margin-top: 80px;
 }
-.feature{
-font-size:34px ;
-color: #3d4853;
+.feature {
+  font-size: 34px;
+  color: #3d4853;
 }
-.prod{
-font-size:21px ;
-color: #5a6b7b;
-margin-top: 10px;
+.prod {
+  font-size: 21px;
+  color: #5a6b7b;
+  margin-top: 10px;
 }

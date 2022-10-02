@@ -1,13 +1,13 @@
-.os{
-    width:100%;
-    margin:auto;
-    background-color: #f7fcff;
+.os {
+  width: 100%;
+  margin: auto;
+  background-color: #f7fcff;
 }
-.auto1{
-    width:60%;
-    margin:auto;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-top: 50px;
+.auto1 {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 50px;
 }

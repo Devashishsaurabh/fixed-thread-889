@@ -11,9 +11,14 @@ const Free = () => {
       bg="aliceblue"
       py="100px"
     >
-      <Flex justifyContent="space-evenly" flexDirection={["column" , "column" , "row" ," row"]} w="60%" h="auto">
+      <Flex
+        justifyContent="space-evenly"
+        flexDirection={["column", "column", "row", " row"]}
+        w="60%"
+        h="auto"
+      >
         <Box w="200px">
-          <Image  src="https://clockify.me/assets/images/free-forever-clock-4.svg" />
+          <Image src="https://clockify.me/assets/images/free-forever-clock-4.svg" />
         </Box>
         <Stack mt="50px" spacing={5}>
           <Box>

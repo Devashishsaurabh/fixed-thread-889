@@ -24,7 +24,9 @@ const Tracking = () => {
       gap="20px"
     >
       <Box>
-        <Heading textAlign="center" color="black">Start tracking time with Clockify</Heading>
+        <Heading textAlign="center" color="black">
+          Start tracking time with Clockify
+        </Heading>
       </Box>
       <Button colorScheme="blue" variant="solid">
         CREATE FREE ACCOUNT

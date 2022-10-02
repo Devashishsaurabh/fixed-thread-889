@@ -1,12 +1,12 @@
-import React from 'react'
-import UpgradeCompo from "../../Components/UpgradeCompo"
+import React from "react";
+import UpgradeCompo from "../../Components/UpgradeCompo";
 
 const Upgrade = () => {
   return (
     <>
-        <UpgradeCompo/>
+      <UpgradeCompo />
     </>
-  )
-}
+  );
+};
 
-export default Upgrade
+export default Upgrade;

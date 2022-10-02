@@ -1,34 +1,32 @@
-.header_box{
-    margin-top: 50px;
-/* border: 1px solid red; */
+.header_box {
+  margin-top: 50px;
+  /* border: 1px solid red; */
 }
 
-
-.most{
-    font-size: 40px;
-    color: #3d4853;
+.most {
+  font-size: 40px;
+  color: #3d4853;
 }
-.track{
-    color: #5a6b7b;
-    font-size: 20px;
-    margin-top: 10px;
+.track {
+  color: #5a6b7b;
+  font-size: 20px;
+  margin-top: 10px;
 }
-.review{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    cursor: pointer;
-    gap: 5px;
+.review {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+  gap: 5px;
 }
-.star{
-    color: gray;
-    font-size: 12px;
-   
+.star {
+  color: gray;
+  font-size: 12px;
 }
-.star:hover{
-    color: black;
+.star:hover {
+  color: black;
 }
 /* .t{
     color:#03a9f4;

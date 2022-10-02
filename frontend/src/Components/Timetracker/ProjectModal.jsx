@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"
+import axios from "axios";
 import {
   Modal,
   ModalOverlay,
@@ -25,19 +25,21 @@ function InitialFocus({ addProject }) {
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-  const [data,setData]=useState([])
+  const [data, setData] = useState([]);
   // console.log(project);
 
-  let token= localStorage.getItem("login_token")
-  let getData=async()=>{
-    await axios.get("https://clockify-api1.herokuapp.com/project",
-    {headers: {'authorization' : `Bearer ${token}`}})
-    .then(res=>setData(res.data)) 
-  }
-  
-  useEffect(()=>{
-    getData()
-  },[])
+  let token = localStorage.getItem("login_token");
+  let getData = async () => {
+    await axios
+      .get("https://clockify-api1.herokuapp.com/project", {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then((res) => setData(res.data));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
@@ -60,39 +62,25 @@ function InitialFocus({ addProject }) {
               <FormLabel>Enter new project name</FormLabel>
               <Input ref={initialRef} placeholder="First name" />
             </FormControl>
-   
-   {data?.map(el=>(
-    <Box key={el._id}
-    onClick={() => setProject({name:el.name,tag:el.tag})}
-    _hover={{ bg: "gray" }}
-    vlaue="project1"
-    cursor="pointer"
-  >
- {el.name}
-  </Box>
-   ))}
-           
-            {/* <Box
-              onClick={() => setProject("P2")}
-              _hover={{ bg: "gray" }}
-              cursor="pointer"
-            >
-              Project 2
-            </Box>
-            <Box
-              onClick={() => setProject("P3")}
-              _hover={{ bg: "gray" }}
-              cursor="pointer"
-            >
-              Project 3
-            </Box> */}
+
+            {data?.map((el) => (
+              <Box
+                key={el._id}
+                onClick={() => setProject({ name: el.name, tag: el.tag })}
+                _hover={{ bg: "gray" }}
+                vlaue="project1"
+                cursor="pointer"
+              >
+                {el.name}
+              </Box>
+            ))}
           </ModalBody>
 
           <ModalFooter>
             <Button
               colorScheme="blue"
               mr={3}
-              onClick={() => (addProject(project),onClose())}
+              onClick={() => (addProject(project), onClose())}
             >
               Save
             </Button>
